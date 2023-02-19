@@ -1,0 +1,142 @@
+[
+	{
+		"key": "group_63ee41cecbb7e",
+		"title": "Tool List",
+		"fields": [
+			{
+				"key": "field_63ee424b574a0",
+				"label": "Tool builder",
+				"name": "tool_builder",
+				"aria-label": "",
+				"type": "repeater",
+				"instructions": "",
+				"required": 0,
+				"conditional_logic": 0,
+				"wrapper": {
+					"width": "",
+					"class": "",
+					"id": ""
+				},
+				"layout": "block",
+				"pagination": 1,
+				"rows_per_page": 6,
+				"min": 0,
+				"max": 0,
+				"collapsed": "field_63ee42930ac3a",
+				"button_label": "Add Tool",
+				"sub_fields": [
+					{
+						"key": "field_63ee42930ac3a",
+						"label": "Tool name",
+						"name": "tool_name",
+						"aria-label": "",
+						"type": "text",
+						"instructions": "",
+						"required": 0,
+						"conditional_logic": 0,
+						"wrapper": {
+							"width": "",
+							"class": "",
+							"id": ""
+						},
+						"default_value": "",
+						"maxlength": "",
+						"placeholder": "",
+						"prepend": "",
+						"append": "",
+						"parent_repeater": "field_63ee424b574a0"
+					},
+					{
+						"key": "field_63ee42a20ac3b",
+						"label": "Description",
+						"name": "description",
+						"aria-label": "",
+						"type": "textarea",
+						"instructions": "",
+						"required": 0,
+						"conditional_logic": 0,
+						"wrapper": {
+							"width": "",
+							"class": "",
+							"id": ""
+						},
+						"default_value": "",
+						"maxlength": "",
+						"rows": "",
+						"placeholder": "",
+						"new_lines": "",
+						"parent_repeater": "field_63ee424b574a0"
+					},
+					{
+						"key": "field_63ee44e30ac3c",
+						"label": "Add an attachment?",
+						"name": "add_attachment",
+						"aria-label": "",
+						"type": "true_false",
+						"instructions": "Switch on if you are attaching a file",
+						"required": 0,
+						"conditional_logic": 0,
+						"wrapper": {
+							"width": "",
+							"class": "",
+							"id": ""
+						},
+						"message": "",
+						"default_value": 0,
+						"ui_on_text": "Yes",
+						"ui_off_text": "No",
+						"ui": 1,
+						"parent_repeater": "field_63ee424b574a0"
+					},
+					{
+						"key": "field_63ee45cb0ac3d",
+						"label": "File name",
+						"name": "file_name",
+						"aria-label": "",
+						"type": "text",
+						"instructions": "",
+						"required": 0,
+						"conditional_logic": [
+							[
+								{
+									"field": "field_63ee44e30ac3c",
+									"operator": "==",
+									"value": "1"
+								}
+							]
+						],
+						"wrapper": {
+							"width": "",
+							"class": "",
+							"id": ""
+						},
+						"default_value": "my_upoad_file.pdf",
+						"maxlength": "",
+						"placeholder": "",
+						"prepend": "",
+						"append": "",
+						"parent_repeater": "field_63ee424b574a0"
+					}
+				]
+			}
+		],
+		"location": [
+			[
+				{
+					"param": "block",
+					"operator": "==",
+					"value": ""
+				}
+			]
+		],
+		"menu_order": 0,
+		"position": "normal",
+		"style": "default",
+		"label_placement": "top",
+		"instruction_placement": "label",
+		"hide_on_screen": "",
+		"active": true,
+		"description": "",
+		"show_in_rest": 0
+	}
+]

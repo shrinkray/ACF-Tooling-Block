@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "acf/tooling",
+  "version": "1.0.2",
+  "title": "tooling",
+  "category": "acf-blocks",
+  "icon": "menu-alt3",
+  "description": "A tooling block.",
+  "supports": {
+    "color": {
+      "text": true,
+      "background": false
+    },
+    "mode": false
+  },
+  "keywords": [
+    "tooling",
+    "list",
+    "files"
+  ],
+  "script": "file:./tooling.js",
+  "style": "file:./tooling.css",
+  "acf": {
+    "mode": "auto",
+    "renderTemplate": "tooling.php"
+  }
+}
