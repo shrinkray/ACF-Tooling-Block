@@ -50,7 +50,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
             <span class="item">Item</span>
             <span class="item">Description</span>
             <span class="item">Download</span>
-            <span class="item">Location</span>
+            <span class="item">Type</span>
         </div>
             <?php while ( have_rows( 'tool_builder' ) ) : the_row();
                 $tool = get_sub_field('tool_name');
@@ -71,6 +71,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
                 <?php if ( $is_attachment ) : ?>
                     <?php
+                    $doc_type = get_sub_field( 'doc_type' );
                     $upload_file = get_sub_field( 'upload_file' );
                     $url = $upload_file['url'];
                     $show_name = get_sub_field( 'manual_name' );
@@ -79,26 +80,31 @@ $wrapper_attributes = get_block_wrapper_attributes(
                     $size = size_format( filesize( get_attached_file( $upload_file['id'] ) ), 2 );
                    // $icon = file_get_contents("../assets/download.svg" );
                     // displays different icon based on type of document
-                    
+
                     ?>
                     <?php if ( $upload_file ) : ?>
 
-                    <button role="button" class="tooling-btn"  title="Download the manual: <?= $title; ?>" src="<?= esc_url( $url ); ?>"><span  class="tooling-icon" ></span>Manual</button>
+                    <button role="button"
+                            class="tooling-btn"
+                            title="Download the manual: <?= $title; ?>" src="<?= esc_url( $url ); ?>">
+                        <span  class="tooling-icon" ><?= $doc_type ?></span>
+                    </button>
 
                         
                     <?php endif; ?>
                 <?php else : ?>
                     <span>Sorry, no file</span>
-                <?php endif;
+                <?php endif; ?>
+                <div class="labels">
+                    <?php if ( $labels_checked_options ):
+                        foreach ( $labels_checked_options as $labels_checked_option ): ?>
+                        <div class="ui label <?= $labels_checked_option['value'] ?>">
+                            <?php echo esc_html( $labels_checked_option['label'] ); ?>
+                        </div>
 
-                if ( $labels_checked_options ):
-                foreach ( $labels_checked_options as $labels_checked_option ): ?>
-                <div class="ui label <?= $labels_checked_option['label'] ?>">
-                    <?php echo esc_html( $labels_checked_option['value'] ); ?>
+                        <?php endforeach;
+                    endif; ?>
                 </div>
-
-                <?php endforeach;
-             endif; ?>
             </div>
         <?php endwhile; ?>
         <?php else : ?>
