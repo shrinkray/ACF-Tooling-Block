@@ -66,8 +66,8 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 
             <div class="tooling-list" >
-                <span class="" ><?php echo $tool ; ?></span>
-                <span class="" ><?php echo $description; ?></span>
+                <span class="tool-name" ><?php echo $tool ; ?></span>
+                <span class="tool-description" ><?php echo $description; ?></span>
 
                 <?php if ( $is_attachment ) : ?>
                     <?php
