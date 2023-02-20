@@ -46,6 +46,12 @@ $wrapper_attributes = get_block_wrapper_attributes(
         <?php if ( have_rows( 'tool_builder' ) ) :
 
             ?>
+        <div class="tooling-header">
+            <span class="item">Item</span>
+            <span class="item">Description</span>
+            <span class="item">Download</span>
+            <span class="item">Location</span>
+        </div>
             <?php while ( have_rows( 'tool_builder' ) ) : the_row();
                 $tool = get_sub_field('tool_name');
                 $description = get_sub_field('description');
@@ -53,10 +59,31 @@ $wrapper_attributes = get_block_wrapper_attributes(
                 $title = get_sub_field('manual_name');
                 $shop_area = get_sub_field('shop_area');
                 $is_attachment = get_sub_field( 'add_attachment' ) == 1;
+                echo $shop_area;
+                $area = 'Something';
+                // displays different icon based on shop location
+                switch ( $shop_area )
+                {
+                    case '1';
+                        $area = 'Wood Shop';
+                    case '2';
+                        $area = 'Machine Shop';
+                    case '3';
+                        $area = 'Fabrics';
+                    case '4';
+                        $area = 'Pottery';
+                    case '5';
+                        $area = 'Printing';
+                    case '6';
+                        $area = 'Laser';
+                    default;
+                        $area = 'Wood shop';
+                        break;
+                }
             ?>
-            <div class="" style="width: 100%; display: inline-grid; grid-template-columns: 1fr 1fr 1fr 1fr; border-bottom: 1px solid red;">
-                <span class="" style="white-space: wrap;"><?php echo $tool ; ?></span>
-                <span class="" style="white-space: wrap;"><?php echo $description; ?></span>
+            <div class="tooling-list" >
+                <span class="" ><?php echo $tool ; ?></span>
+                <span class="" ><?php echo $description; ?></span>
 
                 <?php if ( $is_attachment ) : ?>
                     <?php
@@ -68,45 +95,19 @@ $wrapper_attributes = get_block_wrapper_attributes(
                     $size = size_format( filesize( get_attached_file( $upload_file['id'] ) ), 2 );
                    // $icon = file_get_contents("../assets/download.svg" );
                     // displays different icon based on type of document
-                    echo $shop_area;
-                    $area = 'Something';
-                    // displays different icon based on shop location
-                    switch ( $shop_area )
-                    {
-                        case '1';
-                            $area = 'Wood Shop';
-                        case '2';
-                            $area = 'Machine Shop';
-                        case '3';
-                            $area = 'Fabrics';
-                        case '4';
-                            $area = 'Pottery';
-                        case '5';
-                            $area = 'Printing';
-                        case '6';
-                            $area = 'Laser';
-                        default;
-                            $area = 'Wood shop';
-                            break;
-                    }
+                    
                     ?>
                     <?php if ( $upload_file ) : ?>
-                        <span>
 
-                                <a href="<?= esc_url( $url ); ?>" title="Download the manual: <?= $title; ?>">
-                                    <?php
+                    <button role="button" class="tooling-btn"  title="Download the manual: <?= $title; ?>" src="<?= esc_url( $url ); ?>"><span  class="tooling-icon" ></span>Manual</button>
 
-                                    ?>
-                                    <img alt="download icon" src="../build/assets/download.svg"/>
-                                </a>
-
-                        </span>
-                        <span><?= $area ?></span>
+                        
                     <?php endif; ?>
                 <?php else : ?>
-                    <span style="justify-self: flex-end;">No file</span>
-                    <span><?= $area ?></span>
+                    <span>No file</span>
                 <?php endif; ?>
+
+                <span><?= $area ?></span>
             </div>
         <?php endwhile; ?>
         <?php else : ?>
