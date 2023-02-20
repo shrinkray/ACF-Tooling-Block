@@ -76,9 +76,7 @@ button.tooling-btn {
 }
 
 
-.tooling-header[aria-expanded=true] .tooling-icon {
-  transform: translateY(-50%) rotate(-135deg);
-}
+
 
 .tooling-content {
   margin: 0;
@@ -92,6 +90,85 @@ button.tooling-btn {
 .acf-tooling-block-empty-state {
   padding: 1rem 1rem;
 }
+/*
+abrasive:Abrasives
+arts:Arts & Crafts
+auto:Automotive
+computer:Computer
+elect:Electronics
+fab:Fabrication
+text:Textiles
+layout:Layout
+machine:Machining
+dim:Dimensional
+misc:Miscellaneous
+plastic:Plastics
+ceramic:Ceramics & Pottery
+prototype:Prototyping
+stock:Rolling Stock
+metal:Sheet Metal
+finish:Surface Finishing
+weld:Welding
+wood:Wood Working
+*/
+.ui.label.abrasive {
+  background-color: #F2D7D5;
+}
+.ui.label.arts {
+  background-color: #FADBD8;
+}
+.ui.label.auto {
+  background-color: #EBDEF0;
+}
+.ui.label.computer {
+  background-color: #E8DAEF;
+}
+.ui.label.fab {
+  background-color: #D4E6F1;
+}
+.ui.label.text {
+  background-color: #D6EAF8;
+}
+.ui.label.layout {
+  background-color: #D1F2EB;
+}
+.ui.label.elect {
+  background-color: #D0ECE7;
+}
+.ui.label.machine {
+  background-color: #D4EFDF;
+}
+.ui.label.dim {
+  background-color: #D5F5E3;
+}
+.ui.label.misc {
+  background-color: #FCF3CF;
+}
+.ui.label.plastic {
+  background-color: #FDEBD0;
+}
+.ui.label.ceramic {
+  background-color: #FAE5D3;
+}
+.ui.label.prototype {
+  background-color: #F6DDCC;
+}
+.ui.label.stock {
+  background-color: #FBFCFC;
+}
+.ui.label.metal {
+  background-color: #F2F3F4;
+}
+.ui.label.finish {
+  background-color: #EAEDED;
+}
+.ui.label.weld {
+  background-color: #E5E8E8;
+}
+.ui.label.wood {
+  background-color: #D6DBDF;
+}
+
 
 /* Make the editor sidebar a wee bit bigger */
 @media (min-width: 960px) {
@@ -99,5 +176,6 @@ button.tooling-btn {
     width: 440px !important;
   }
 }
+
 
 /*# sourceMappingURL=tooling.css.map*/

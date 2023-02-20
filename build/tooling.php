@@ -59,28 +59,12 @@ $wrapper_attributes = get_block_wrapper_attributes(
                 $title = get_sub_field('manual_name');
                 $shop_area = get_sub_field('shop_area');
                 $is_attachment = get_sub_field( 'add_attachment' ) == 1;
-                echo $shop_area;
-                $area = 'Something';
-                // displays different icon based on shop location
-                switch ( $shop_area )
-                {
-                    case '1';
-                        $area = 'Wood Shop';
-                    case '2';
-                        $area = 'Machine Shop';
-                    case '3';
-                        $area = 'Fabrics';
-                    case '4';
-                        $area = 'Pottery';
-                    case '5';
-                        $area = 'Printing';
-                    case '6';
-                        $area = 'Laser';
-                    default;
-                        $area = 'Wood shop';
-                        break;
-                }
-            ?>
+
+
+            $labels_checked_options = get_sub_field( 'labels' );
+			?>
+
+
             <div class="tooling-list" >
                 <span class="" ><?php echo $tool ; ?></span>
                 <span class="" ><?php echo $description; ?></span>
@@ -104,10 +88,17 @@ $wrapper_attributes = get_block_wrapper_attributes(
                         
                     <?php endif; ?>
                 <?php else : ?>
-                    <span>No file</span>
-                <?php endif; ?>
+                    <span>Sorry, no file</span>
+                <?php endif;
 
-                <span><?= $area ?></span>
+                if ( $labels_checked_options ):
+                foreach ( $labels_checked_options as $labels_checked_option ): ?>
+                <div class="ui label <?= $labels_checked_option['label'] ?>">
+                    <?php echo esc_html( $labels_checked_option['value'] ); ?>
+                </div>
+
+                <?php endforeach;
+             endif; ?>
             </div>
         <?php endwhile; ?>
         <?php else : ?>
