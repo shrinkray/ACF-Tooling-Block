@@ -49,7 +49,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
         <div class="tooling-header">
             <span class="item">Item</span>
             <span class="item">Description</span>
-            <span class="item">Download</span>
+            <span class="item">See Docs</span>
             <span class="item">Type</span>
         </div>
             <?php while ( have_rows( 'tool_builder' ) ) : the_row();
@@ -84,16 +84,18 @@ $wrapper_attributes = get_block_wrapper_attributes(
                     ?>
                     <?php if ( $upload_file ) : ?>
 
-                    <button role="button"
-                            class="tooling-btn"
-                            title="Download the manual: <?= $title; ?>" src="<?= esc_url( $url ); ?>">
-                        <span  class="tooling-icon" ><?= $doc_type ?></span>
-                    </button>
+                    <a role="button" 
+                            class="tooling-btn" 
+                            title="Download the manual: <?= $title; ?>" 
+                            href="<?= esc_url( $url ); ?>"> 
+
+                        <?= $doc_type ?>
+                    </a>
 
                         
                     <?php endif; ?>
                 <?php else : ?>
-                    <span>Sorry, no file</span>
+                    <span class=""></span>
                 <?php endif; ?>
                 <div class="labels">
                     <?php if ( $labels_checked_options ):
