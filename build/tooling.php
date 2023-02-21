@@ -79,8 +79,6 @@ $wrapper_attributes = get_block_wrapper_attributes(
                     $type = substr($upload_file['filename'], -3); // grabs last three chars
                     $extension = strtoupper($type); // force to uppercase;
                     $size = size_format( filesize( get_attached_file( $upload_file['id'] ) ), 2 );
-                   // $icon = file_get_contents("../assets/download.svg" );
-                    // displays different icon based on type of document
 
                     ?>
                     <?php if ( $upload_file ) : ?>
@@ -93,7 +91,6 @@ $wrapper_attributes = get_block_wrapper_attributes(
                         <?= $doc_type ?>
                     </a>
 
-                        
                     <?php endif; ?>
                 <?php else : ?>
                     No Doc
@@ -102,17 +99,6 @@ $wrapper_attributes = get_block_wrapper_attributes(
 <!--                Display Description -->
                 <div class="tooling-desc" ><?php echo $description; ?></div>
 
-<!--                Removing Labels from layout; not a great need right now -->
-<!--                <div class="labels">-->
-<!--                    --><?php //if ( $labels_checked_options ):
-//                        foreach ( $labels_checked_options as $labels_checked_option ): ?>
-<!--                        <div class="ui label --><?//= $labels_checked_option['value'] ?><!--">-->
-<!--                            --><?php //echo esc_html( $labels_checked_option['label'] ); ?>
-<!--                        </div>-->
-<!---->
-<!--                        --><?php //endforeach;
-//                    endif; ?>
-<!--                </div>-->
             </div>
         <?php endwhile; ?>
         <?php else : ?>
