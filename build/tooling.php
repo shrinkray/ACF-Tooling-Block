@@ -47,10 +47,9 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
             ?>
         <div class="tooling-header">
-            <span class="item">Item</span>
-            <span class="item">Description</span>
-            <span class="item">See Docs</span>
-            <span class="item">Type</span>
+            <span class="heading-tool">Item</span>
+            <span class="heading-docs">View Docs</span>
+            <span class="heading-desc">Description</span>
         </div>
             <?php while ( have_rows( 'tool_builder' ) ) : the_row();
                 $tool = get_sub_field('tool_name');
@@ -66,9 +65,11 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 
             <div class="tooling-list" >
-                <span class="tool-name" ><?php echo $tool ; ?></span>
-                <span class="tool-description" ><?php echo $description; ?></span>
+<!--             Show Tool name   -->
+                <div class="tooling-name" ><?php echo $tool ; ?></div>
 
+<!--             Download Docs Column -->
+                <div class="tooling-docs">
                 <?php if ( $is_attachment ) : ?>
                     <?php
                     $doc_type = get_sub_field( 'doc_type' );
@@ -95,18 +96,23 @@ $wrapper_attributes = get_block_wrapper_attributes(
                         
                     <?php endif; ?>
                 <?php else : ?>
-                    <span class=""></span>
+                    No Doc
                 <?php endif; ?>
-                <div class="labels">
-                    <?php if ( $labels_checked_options ):
-                        foreach ( $labels_checked_options as $labels_checked_option ): ?>
-                        <div class="ui label <?= $labels_checked_option['value'] ?>">
-                            <?php echo esc_html( $labels_checked_option['label'] ); ?>
-                        </div>
-
-                        <?php endforeach;
-                    endif; ?>
                 </div>
+<!--                Display Description -->
+                <div class="tooling-desc" ><?php echo $description; ?></div>
+
+<!--                Removing Labels from layout; not a great need right now -->
+<!--                <div class="labels">-->
+<!--                    --><?php //if ( $labels_checked_options ):
+//                        foreach ( $labels_checked_options as $labels_checked_option ): ?>
+<!--                        <div class="ui label --><?//= $labels_checked_option['value'] ?><!--">-->
+<!--                            --><?php //echo esc_html( $labels_checked_option['label'] ); ?>
+<!--                        </div>-->
+<!---->
+<!--                        --><?php //endforeach;
+//                    endif; ?>
+<!--                </div>-->
             </div>
         <?php endwhile; ?>
         <?php else : ?>
