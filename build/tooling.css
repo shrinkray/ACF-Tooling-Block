@@ -93,7 +93,7 @@ a.tooling-btn:hover {
 .tooling-header,
 .tooling-list {
   display: inline-grid;
-  grid-template-areas: "item item docs desc desc desc desc desc";
+  grid-template-areas: "item item docs docs desc desc desc desc";
   grid-template-columns: repeat(8, 1fr);
 
   width: 100%;

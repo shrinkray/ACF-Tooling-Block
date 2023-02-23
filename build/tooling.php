@@ -83,7 +83,8 @@ $wrapper_attributes = get_block_wrapper_attributes(
                     ?>
                     <?php if ( $upload_file ) : ?>
 
-                    <a role="button" 
+                    <a role="button"
+                        style="margin-right: 0.5rem;"
                             class="tooling-btn" 
                             title="Download the manual: <?= $title; ?>" 
                             href="<?= esc_url( $url ); ?>"> 
@@ -93,8 +94,11 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
                     <?php endif; ?>
                 <?php else : ?>
-                    No Doc
+                    <span class="" style="margin-right: 0.5rem;">
+                        No doc
+                    </span>
                 <?php endif; ?>
+
                 </div>
 <!--                Display Description -->
                 <div class="tooling-desc" ><?php echo $description; ?></div>
