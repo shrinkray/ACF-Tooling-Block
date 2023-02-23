@@ -107,7 +107,24 @@ $wrapper_attributes = get_block_wrapper_attributes(
         <?php endwhile; ?>
         <?php else : ?>
             <?php // No rows found ?>
+        <?php endif; ?> <!-- end tool builder -->
+
+        <?php if ( get_field( 'add_room_handbook' ) == 1 ) :
+            $handbook_name = get_field( 'handbook_name' );
+            $handbook_desc = get_field( 'handbook_description' );
+            $handbook_url = get_field( 'handbook_url' );
+            $upload_space_photo = get_field( 'upload_space_photo' );
+            $img_alt = get_field( 'image_alt_text' );
+            ?>
+
+        <?php else : ?>
+            <?php // echo 'false'; ?>
+        <?php endif; ?>
+
+        <?php if ( $upload_space_photo ) : ?>
+            <?php echo wp_get_attachment_image( $upload_space_photo, $size ); ?>
         <?php endif; ?>
     </div>
+
 </div><!-- .tooling -->
 
