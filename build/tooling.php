@@ -54,20 +54,14 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
             ?>
         <div class="tooling-header">
-            <span class="heading-tool">Item</span>
-            <span class="heading-docs">View Docs</span>
-            <span class="heading-desc">Description</span>
+            <span class="heading-tool">Tool</span>
+            <span class="heading-docs">Docs & Technical Specs</span>
+            <span class="heading-desc">Use & Notes</span>
         </div>
             <?php while ( have_rows( 'tool_builder' ) ) : the_row();
                 $tool = get_sub_field('tool_name');
                 $description = get_sub_field('description');
-                $file_name = get_sub_field('file_name');
-                $title = get_sub_field('manual_name');
-                $shop_area = get_sub_field('shop_area');
-                $is_attachment = get_sub_field( 'add_attachment' ) == 1;
-
-
-            $labels_checked_options = get_sub_field( 'labels' );
+                $notes = get_sub_field( 'notes' );
 			?>
 
 
@@ -77,77 +71,43 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 <!--             Download Docs Column -->
                 <div class="tooling-docs">
-                <?php if ( $is_attachment ) : ?>
-                    <?php
-                    $doc_type = get_sub_field( 'doc_type' );
-                    $upload_file = get_sub_field( 'upload_file' );
-                    $url = $upload_file['url'];
-                    $show_name = get_sub_field( 'manual_name' );
-                    $type = substr($upload_file['filename'], -3); // grabs last three chars
-                    $extension = strtoupper($type); // force to uppercase;
-                    $size = size_format( filesize( get_attached_file( $upload_file['id'] ) ), 2 );
 
-                    ?>
-                    <?php if ( $upload_file ) : ?>
+                    <?php if ( have_rows( 'add_docs' ) ) : ?>
+                        <?php while ( have_rows( 'add_docs' ) ) : the_row();
 
-                    <a role="button"
-                        style="margin-right: 0.5rem;"
-                            class="tooling-btn" 
-                            title="Download the manual: <?= $title; ?>" 
-                            href="<?= esc_url( $url ); ?>"> 
+                        $doc_name = get_sub_field( 'manual_name' );
+                        $doc_url = get_sub_field( 'doc_url' );
+                        $doc_desc = get_sub_field( 'doc_desc' );
 
-                        <?= $doc_type ?>
-                    </a>
+                        ?>
 
+                            <?php if ( $doc_url ) : ?>
+                                <a
+                                        class="tooling-btn"
+                                        href="<?= esc_url( $doc_url ) ; ?>"
+                                        title="<?= esc_html( $doc_desc ) ?>"><?= esc_html( $doc_name ); ?>
+                                </a>
+                            <?php endif; ?>
+
+                        <?php endwhile; ?>
+                    <?php else : ?>
+                        <span class="" >
+                            - -
+                        </span>
                     <?php endif; ?>
-                <?php else : ?>
-                    <span class="" style="margin-right: 0.5rem;">
-                        No doc
-                    </span>
-                <?php endif; ?>
 
                 </div>
 <!--                Display Description -->
-                <div class="tooling-desc" ><?php echo $description; ?></div>
+                <div class="tooling-desc" >
+                    <?= esc_html( $description ); ?>
+                    <mark><?= $notes ? '<strong>Notes:&nbsp;</strong>' . esc_html( $notes ) : '' ?></mark>
+                </div>
 
             </div>
         <?php endwhile; ?>
         <?php else : ?>
             <?php // No rows found ?>
         <?php endif; ?> <!-- end tool builder -->
-
-        <?php if ( have_rows( 'tool_footer' ) ) :
-             while ( have_rows( 'tool_footer' ) ) : the_row();
-                $add_handbook = get_sub_field( 'add_room_handbook' );
-                $handbook_name = get_sub_field( 'handbook_name' );
-                $handbook_desc = get_sub_field( 'handbook_description' );
-                $handbook_url = get_sub_field( 'handbook_url' );
-
-                $lab_photo = get_sub_field( 'upload_space_photo' );
-                $size = 'medium';
-                $alt = get_sub_field( 'image_alt_text' );
-
-                 ?>
-            <div class="row">
-                <div class="tool-footer">
-                    <div class="handbook">
-                        <?php if ( $add_handbook == 1 ) : ?>
-                            <a class="tooling-btn light-bkg" role="button" href="<?= $handbook_url ?>" target="_blank" title="<?= $handbook_desc ?>"><?= $handbook_name ?></a>
-                        <?php else : ?>
-                            <?php // echo 'skip'; ?>
-                        <?php endif; ?>
-                    </div>
-                    <div class="lab-photo">
-                        <?php  ?>
-                        <?php if ( $lab_photo ) : ?>
-                            <?php echo wp_get_attachment_image( $lab_photo, $size ); ?>
-                        <?php endif; ?>
-                    </div>
-                </div> <!-- /.tool-footer -->
-            </div>
-            <?php endwhile; ?>
-        <?php endif; ?>
-    </div>
 
 </div><!-- .tooling -->
 
