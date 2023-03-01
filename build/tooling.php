@@ -1,10 +1,17 @@
-<?php
-/**
- * tooling block.
+<?php /**
+ * Block template file: tooling.php
+ *
+ * Tooling Block Template.
+ *
+ * @param   array $block The block settings and attributes.
+ * @param   string $content The block inner HTML (empty).
+ * @param   bool $is_preview True during AJAX preview.
+ * @param   (int|string) $post_id The post ID this block is saved to.
  */
 
 
 // Create id attribute allowing for custom "anchor" value.
+
 $id = 'tool-list-' . $block['id'];
 if ( ! empty($block['anchor'] ) ) {
     $id = $block['anchor'];
@@ -113,7 +120,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
              while ( have_rows( 'tool_footer' ) ) : the_row();
                 $add_handbook = get_sub_field( 'add_room_handbook' );
                 $handbook_name = get_sub_field( 'handbook_name' );
-                $handbook_desc = getsub_field( 'handbook_description' );
+                $handbook_desc = get_sub_field( 'handbook_description' );
                 $handbook_url = get_sub_field( 'handbook_url' );
 
                 $lab_photo = get_sub_field( 'upload_space_photo' );
@@ -121,21 +128,23 @@ $wrapper_attributes = get_block_wrapper_attributes(
                 $alt = get_sub_field( 'image_alt_text' );
 
                  ?>
-             <div class="tool-footer">
-                 <div class="handbook">
-                <?php if ( $add_handbook == 1 ) : ?>;
-                    <?php // echo 'add handbook code'; ?>
-                <?php else : ?>
-                    <?php // echo 'skip'; ?>
-                <?php endif; ?>
-                 </div>
-               <div class="lab-photo">
-                <?php  ?>
-                <?php if ( $lab_photo ) : ?>
-                    <?php echo wp_get_attachment_image( $lab_photo, $size ); ?>
-                <?php endif; ?>
-               </div>
-             </div> <!-- /.tool-footer -->
+            <div class="row">
+                <div class="tool-footer">
+                    <div class="handbook">
+                        <?php if ( $add_handbook == 1 ) : ?>
+                            <a class="tooling-btn light-bkg" role="button" href="<?= $handbook_url ?>" target="_blank" title="<?= $handbook_desc ?>"><?= $handbook_name ?></a>
+                        <?php else : ?>
+                            <?php // echo 'skip'; ?>
+                        <?php endif; ?>
+                    </div>
+                    <div class="lab-photo">
+                        <?php  ?>
+                        <?php if ( $lab_photo ) : ?>
+                            <?php echo wp_get_attachment_image( $lab_photo, $size ); ?>
+                        <?php endif; ?>
+                    </div>
+                </div> <!-- /.tool-footer -->
+            </div>
             <?php endwhile; ?>
         <?php endif; ?>
     </div>

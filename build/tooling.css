@@ -99,6 +99,17 @@ a.tooling-btn:hover {
   width: 100%;
 }
 
+.tool-footer {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  background: #1F1F1F;
+}
+.light-bkg {
+  background-color: ivory;
+}
 
 /* wrap description */
 @media (max-width: 999px) {
