@@ -20,7 +20,7 @@ if ( ! empty( $block['align'] ) ) {
 }
 ?>
 
-<style type="text/css">
+<style>
     <?php echo '#' . $id; ?> {
     /* Add styles that use ACF values here */
     }
@@ -109,20 +109,34 @@ $wrapper_attributes = get_block_wrapper_attributes(
             <?php // No rows found ?>
         <?php endif; ?> <!-- end tool builder -->
 
-        <?php if ( get_field( 'add_room_handbook' ) == 1 ) :
-            $handbook_name = get_field( 'handbook_name' );
-            $handbook_desc = get_field( 'handbook_description' );
-            $handbook_url = get_field( 'handbook_url' );
-            $upload_space_photo = get_field( 'upload_space_photo' );
-            $img_alt = get_field( 'image_alt_text' );
-            ?>
+        <?php if ( have_rows( 'tool_footer' ) ) :
+             while ( have_rows( 'tool_footer' ) ) : the_row();
+                $add_handbook = get_sub_field( 'add_room_handbook' );
+                $handbook_name = get_sub_field( 'handbook_name' );
+                $handbook_desc = getsub_field( 'handbook_description' );
+                $handbook_url = get_sub_field( 'handbook_url' );
 
-        <?php else : ?>
-            <?php // echo 'false'; ?>
-        <?php endif; ?>
+                $lab_photo = get_sub_field( 'upload_space_photo' );
+                $size = 'medium';
+                $alt = get_sub_field( 'image_alt_text' );
 
-        <?php if ( $upload_space_photo ) : ?>
-            <?php echo wp_get_attachment_image( $upload_space_photo, $size ); ?>
+                 ?>
+             <div class="tool-footer">
+                 <div class="handbook">
+                <?php if ( $add_handbook == 1 ) : ?>;
+                    <?php // echo 'add handbook code'; ?>
+                <?php else : ?>
+                    <?php // echo 'skip'; ?>
+                <?php endif; ?>
+                 </div>
+               <div class="lab-photo">
+                <?php  ?>
+                <?php if ( $lab_photo ) : ?>
+                    <?php echo wp_get_attachment_image( $lab_photo, $size ); ?>
+                <?php endif; ?>
+               </div>
+             </div> <!-- /.tool-footer -->
+            <?php endwhile; ?>
         <?php endif; ?>
     </div>
 
