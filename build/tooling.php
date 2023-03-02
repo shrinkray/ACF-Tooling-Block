@@ -76,16 +76,34 @@ $wrapper_attributes = get_block_wrapper_attributes(
                         <?php while ( have_rows( 'add_docs' ) ) : the_row();
 
                         $doc_name = get_sub_field( 'manual_name' );
-                        $doc_url = get_sub_field( 'doc_url' );
+                        $room     = get_sub_field( 'work_space' );
+                        $type     = get_sub_field( 'sub_folder' );
+                        $doc_file = get_sub_field( 'doc_file' );
+                        $alt_file = get_sub_field( 'alt_file' );
+                        $is_pdf   = get_sub_field( 'is_pdf' );
                         $doc_desc = get_sub_field( 'doc_desc' );
+                        $site_url = site_url();
+
+                        // if attached file is a pdf, we add extension, otherwise it's something else
+                        $is_pdf ?
+                            $doc_file = $doc_file . '.pdf' :
+                            $doc_file = $alt_file;
+
+                        // if type exists, insert in path, otherwise build path without
+                        $type ?
+                            $path = $site_url . '/manuals/' . $room . '/' . $type . '/'. $doc_file :
+                            $path = $site_url . '/manuals/' . $room . '/' . $doc_file;
+
 
                         ?>
 
-                            <?php if ( $doc_url ) : ?>
+                            <?php if ( $path ) : ?>
                                 <a
-                                        class="tooling-btn"
-                                        href="<?= esc_url( $doc_url ) ; ?>"
-                                        title="<?= esc_html( $doc_desc ) ?>"><?= esc_html( $doc_name ); ?>
+                                        class="tooling-btn pdf-tag"
+                                        role="button"
+                                        href="<?= esc_url( $path ) ; ?>"
+                                        title="download <?= esc_html( $doc_desc ) ?>"
+                                        aria-label="download <?= esc_html( $doc_desc ) ?>"><?= esc_html( $doc_name ) ?>
                                 </a>
                             <?php endif; ?>
 
