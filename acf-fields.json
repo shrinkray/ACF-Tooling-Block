@@ -4,7 +4,7 @@
 		"title": "Tooling",
 		"fields": [
 			{
-				"key": "field_63ee424b574a0",
+				"key": "field_640103f2092b9",
 				"label": "Tool builder",
 				"name": "tool_builder",
 				"aria-label": "",
@@ -18,15 +18,15 @@
 					"id": ""
 				},
 				"layout": "block",
-				"pagination": 0,
+				"pagination": 1,
+				"rows_per_page": 6,
 				"min": 0,
 				"max": 0,
-				"collapsed": "field_63ee42930ac3a",
-				"button_label": "Add Tool",
-				"rows_per_page": 20,
+				"collapsed": "",
+				"button_label": "+ Add Tool",
 				"sub_fields": [
 					{
-						"key": "field_63effae5cea19",
+						"key": "field_640103f2092ba",
 						"label": "The tool",
 						"name": "",
 						"aria-label": "",
@@ -41,10 +41,10 @@
 						},
 						"placement": "top",
 						"endpoint": 0,
-						"parent_repeater": "field_63ee424b574a0"
+						"parent_repeater": "field_640103f2092b9"
 					},
 					{
-						"key": "field_63ee42930ac3a",
+						"key": "field_640103f2092bb",
 						"label": "Tool name",
 						"name": "tool_name",
 						"aria-label": "",
@@ -62,10 +62,10 @@
 						"placeholder": "",
 						"prepend": "",
 						"append": "",
-						"parent_repeater": "field_63ee424b574a0"
+						"parent_repeater": "field_640103f2092b9"
 					},
 					{
-						"key": "field_63ee42a20ac3b",
+						"key": "field_640103f2092bc",
 						"label": "Description",
 						"name": "description",
 						"aria-label": "",
@@ -83,11 +83,11 @@
 						"rows": 2,
 						"placeholder": "",
 						"new_lines": "",
-						"parent_repeater": "field_63ee424b574a0"
+						"parent_repeater": "field_640103f2092b9"
 					},
 					{
-						"key": "field_63ffb74430386",
-						"label": "Notes",
+						"key": "field_640103f2092bd",
+						"label": "Highlight notes",
 						"name": "notes",
 						"aria-label": "",
 						"type": "text",
@@ -104,10 +104,10 @@
 						"placeholder": "",
 						"prepend": "",
 						"append": "",
-						"parent_repeater": "field_63ee424b574a0"
+						"parent_repeater": "field_640103f2092b9"
 					},
 					{
-						"key": "field_63effa5e5d5ef",
+						"key": "field_640103f2092be",
 						"label": "Attach Docs",
 						"name": "",
 						"aria-label": "",
@@ -122,10 +122,10 @@
 						},
 						"placement": "top",
 						"endpoint": 0,
-						"parent_repeater": "field_63ee424b574a0"
+						"parent_repeater": "field_640103f2092b9"
 					},
 					{
-						"key": "field_63ffa216833d0",
+						"key": "field_640103f2092bf",
 						"label": "Add docs",
 						"name": "add_docs",
 						"aria-label": "",
@@ -146,17 +146,17 @@
 						"rows_per_page": 20,
 						"sub_fields": [
 							{
-								"key": "field_63f14714e7ebf",
+								"key": "field_640103f2092c0",
 								"label": "Doc name",
 								"name": "manual_name",
 								"aria-label": "",
 								"type": "text",
-								"instructions": "Use a brief name of the manual.",
+								"instructions": "Use readable name like, Thickness Planer",
 								"required": 1,
 								"conditional_logic": [
 									[
 										{
-											"field": "field_63ee424b574a0",
+											"field": "field_640103f2092b9",
 											"operator": "!=empty"
 										}
 									]
@@ -171,20 +171,20 @@
 								"placeholder": "",
 								"prepend": "",
 								"append": "",
-								"parent_repeater": "field_63ffa216833d0"
+								"parent_repeater": "field_640103f2092bf"
 							},
 							{
-								"key": "field_63ffb4fbb1db9",
-								"label": "Doc url",
-								"name": "doc_url",
+								"key": "field_6401046b092c4",
+								"label": "Work space",
+								"name": "work_space",
 								"aria-label": "",
-								"type": "url",
-								"instructions": "",
+								"type": "select",
+								"instructions": "Select room",
 								"required": 1,
 								"conditional_logic": [
 									[
 										{
-											"field": "field_63f14714e7ebf",
+											"field": "field_640103f2092b9",
 											"operator": "!=empty"
 										}
 									]
@@ -194,22 +194,87 @@
 									"class": "",
 									"id": ""
 								},
-								"default_value": "",
+								"choices": {
+									"3d-printing": "3D Printing",
+									"ceramics": "Ceramics",
+									"computer-lab": "Computer Lab",
+									"laser-engraver": "Laser Engraver",
+									"metal-shop": "Metal Shop",
+									"photo-studio": "Photo Studio",
+									"sewing-center": "Sewing Center",
+									"wood-shop": "Wood Shop"
+								},
+								"default_value": false,
+								"return_format": "value",
+								"multiple": 0,
+								"allow_null": 0,
+								"ui": 1,
+								"ajax": 0,
 								"placeholder": "",
-								"parent_repeater": "field_63ffa216833d0"
+								"parent_repeater": "field_640103f2092bf"
 							},
 							{
-								"key": "field_63ffa2bc833d1",
-								"label": "Doc description",
-								"name": "doc_desc",
+								"key": "field_6403e537a9ce7",
+								"label": "Subfolder?",
+								"name": "is_subfolder",
+								"aria-label": "",
+								"type": "true_false",
+								"instructions": "",
+								"required": 0,
+								"conditional_logic": 0,
+								"wrapper": {
+									"width": "30",
+									"class": "",
+									"id": ""
+								},
+								"message": "+ Add",
+								"default_value": 0,
+								"ui": 0,
+								"ui_on_text": "",
+								"ui_off_text": "",
+								"parent_repeater": "field_640103f2092bf"
+							},
+							{
+								"key": "field_6401074f092c5",
+								"label": "Sub folder",
+								"name": "sub_folder",
 								"aria-label": "",
 								"type": "text",
-								"instructions": "Help screen reader users",
+								"instructions": "Add subfolder name here",
 								"required": 1,
 								"conditional_logic": [
 									[
 										{
-											"field": "field_63f14714e7ebf",
+											"field": "field_6403e537a9ce7",
+											"operator": "==",
+											"value": "1"
+										}
+									]
+								],
+								"wrapper": {
+									"width": "70",
+									"class": "",
+									"id": ""
+								},
+								"default_value": "",
+								"maxlength": "",
+								"placeholder": "",
+								"prepend": "",
+								"append": "",
+								"parent_repeater": "field_640103f2092bf"
+							},
+							{
+								"key": "field_640103f2092c1",
+								"label": "Filename",
+								"name": "doc_file",
+								"aria-label": "",
+								"type": "text",
+								"instructions": "Use full filename like 'thickness-planer.pdf'",
+								"required": 1,
+								"conditional_logic": [
+									[
+										{
+											"field": "field_640103f2092b9",
 											"operator": "!=empty"
 										}
 									]
@@ -224,10 +289,38 @@
 								"placeholder": "",
 								"prepend": "",
 								"append": "",
-								"parent_repeater": "field_63ffa216833d0"
+								"parent_repeater": "field_640103f2092bf"
+							},
+							{
+								"key": "field_640103f2092c2",
+								"label": "Doc description",
+								"name": "doc_desc",
+								"aria-label": "",
+								"type": "text",
+								"instructions": "not repeated description for tool, will appear in title",
+								"required": 1,
+								"conditional_logic": [
+									[
+										{
+											"field": "field_640103f2092c0",
+											"operator": "!=empty"
+										}
+									]
+								],
+								"wrapper": {
+									"width": "",
+									"class": "",
+									"id": ""
+								},
+								"default_value": "",
+								"maxlength": "",
+								"placeholder": "",
+								"prepend": "download:",
+								"append": "",
+								"parent_repeater": "field_640103f2092bf"
 							}
 						],
-						"parent_repeater": "field_63ee424b574a0"
+						"parent_repeater": "field_640103f2092b9"
 					}
 				]
 			}
@@ -243,9 +336,9 @@
 		],
 		"menu_order": 0,
 		"position": "normal",
-		"style": "default",
+		"style": "seamless",
 		"label_placement": "top",
-		"instruction_placement": "label",
+		"instruction_placement": "field",
 		"hide_on_screen": "",
 		"active": true,
 		"description": "",

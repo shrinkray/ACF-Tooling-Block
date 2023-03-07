@@ -122,7 +122,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
         <?php endwhile; ?>
         <?php else : ?>
             <?php // No rows found ?>
-        <?php endif; // end tool builder ?> 
+        <?php endif; // end tool builder ?>
 
 </div>
 
