@@ -66,10 +66,10 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 
             <div class="tooling-list" >
-<!--             Show Tool name   -->
+
                 <div class="tooling-name" ><?php echo $tool ; ?></div>
 
-<!--             Download Docs Column -->
+
                 <div class="tooling-docs">
 
                     <?php if ( have_rows( 'add_docs' ) ) : ?>
@@ -79,31 +79,23 @@ $wrapper_attributes = get_block_wrapper_attributes(
                         $room       = get_sub_field( 'work_space' );
                         $subfolder  = get_sub_field( 'sub_folder' );
                         $doc_file   = get_sub_field( 'doc_file' );
-                        $alt_file   = get_sub_field( 'alt_file' );
-                        $is_pdf     = get_sub_field( 'is_pdf' );
                         $doc_desc   = get_sub_field( 'doc_desc' );
                         $site_url   = site_url();
 
-                        // if attached file is a pdf, we add extension, otherwise it's something else
-                        $is_pdf ?
-                            $doc_file = $doc_file . '.pdf' :
-                            $doc_file = $alt_file;
-                        
-                        $is_pdf ?
-                            $type_tag = 'pdf' :
-                            $type_tag = 'stl';
+                        // returns the file extension
+                        $extension = pathinfo($doc_file, PATHINFO_EXTENSION);
 
                         // if type exists, insert in path, otherwise build path without
                         $subfolder ?
                             $path = $site_url . '/manuals/' . $room . '/' . $subfolder . '/'. $doc_file :
                             $path = $site_url . '/manuals/' . $room . '/' . $doc_file;
 
-
+                        // Build the download link based on derived info
                         ?>
 
                             <?php if ( $path ) : ?>
                                 <a
-                                    class="tooling-btn <?= $type_tag ?>"
+                                    class="tooling-btn <?= $extension ?>"
                                     role="button"
                                     href="<?= esc_url( $path ) ; ?>"
                                     title="Open <?= esc_html( $doc_desc ) ?>"
@@ -120,7 +112,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
                     <?php endif; ?>
 
                 </div>
-<!--                Display Description -->
+
                 <div class="tooling-desc" >
                     <?= esc_html( $description ); ?>
                     <mark><?= $notes ? '<strong>Notes:&nbsp;</strong>' . esc_html( $notes ) : '' ?></mark>
@@ -130,7 +122,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
         <?php endwhile; ?>
         <?php else : ?>
             <?php // No rows found ?>
-        <?php endif; ?> <!-- end tool builder -->
+        <?php endif; // end tool builder ?> 
 
-</div><!-- .tooling -->
+</div>
 
