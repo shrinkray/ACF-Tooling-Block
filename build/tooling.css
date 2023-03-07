@@ -69,19 +69,49 @@ html {
 mark {
   width: fit-content;
 }
-.pdf-tag {
-  background-image: url("data:image/svg+xml,%3Csvg width='20' height='54' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='red' d='M0 0h18v54H0z'/%3E%3Cpath d='M16 42H2v-4.907c0-1.101.187-2.006.562-2.714.374-.724.876-1.26 1.505-1.606a4.117 4.117 0 0 1 2.09-.543c.555 0 1.079.098 1.573.294.495.196.93.49 1.304.882s.666.89.876 1.493c.21.588.315 1.281.315 2.08v2.104H16V42Zm-8.112-2.917V37.16c0-.407-.075-.753-.225-1.04a1.735 1.735 0 0 0-.607-.7 1.722 1.722 0 0 0-.921-.25 1.61 1.61 0 0 0-.899.25c-.255.165-.45.391-.584.677-.15.287-.225.634-.225 1.04v1.946h3.46ZM16 30.828H2v-3.754c0-.829.075-1.53.225-2.103.15-.573.374-1.063.674-1.47a4.432 4.432 0 0 1 1.056-1.063c.42-.316.891-.588 1.416-.814a7.507 7.507 0 0 1 1.73-.543c.614-.12 1.281-.18 2-.18 1.064.014 2.023.15 2.876.406.84.242 1.559.626 2.158 1.154.6.512 1.063 1.176 1.393 1.99.315.814.472 1.779.472 2.895v3.482Zm-2.247-2.804v-.633c0-.92-.195-1.651-.585-2.194-.404-.543-.95-.927-1.64-1.153-.704-.226-1.505-.34-2.404-.34-.99 0-1.843.099-2.562.295-.72.196-1.281.55-1.686 1.063-.42.497-.629 1.198-.629 2.103v.859h9.506ZM16 18.978H2V10h2.292v6.445h3.034V11.2h2.292v5.246H16v2.533Z' fill='%23fff'/%3E%3C/svg%3E");
-  background-repeat: no-repeat no-repeat;
-  background-position: left center;
+.pdf:before {
+  content: 'PDF';
+  color: black;
+  padding:0 0.5rem;
+  border-radius: 0.5rem;
+  left: -5px;
+  position: relative;
+  background: #fcc7cf;
+  font-size: x-small;
+  font-weight: bold;
+
 }
+.stl:before {
+  content: 'STL';
+  color: black;
+  padding:0 0.5rem;
+  border-radius: 0.5rem;
+  left: -5px;
+  position: relative;
+  background: #b9dce7;
+  font-size: x-small;
+  font-weight: bold;
+
+}
+
+.gcode:before {
+  content: 'GCODE';
+  color: black;
+  padding:0 0.5rem;
+  border-radius: 0.5rem;
+  left: -5px;
+  position: relative;
+  background: #a6eca6;
+  font-size: x-small;
+  font-weight: bold;
+
+}
+
 
 a.tooling-btn {
   align-self: center;
-  padding: 0 0.6rem 0 1.3rem;
-  background-size: contain;
-  border: 2px solid darkred;
-  border-radius: 0.3rem 0.5rem 0.5rem 0.3rem;
-  margin-right: 0.4rem;
+  line-height: 1;
+  white-space: nowrap;
 }
 a.tooling-btn:hover {
   cursor: pointer;
@@ -145,26 +175,30 @@ a.tooling-btn:hover {
 
   a.tooling-btn {
     align-self: center;
-    padding: 0.25rem 1rem;
+    padding: 0.2rem;
     background-image: none;
-    border: 2px solid darkred;
-    border-radius: 0.5rem;
   }
   .tooling-desc {
     padding-top: 1rem;
   }
 }
 @media (max-width: 479px) {
-
+  .tooling-name {
+    padding: 0.5rem 0;
+  }
   .tooling-header,
   .tooling-list {
     display: grid;
-    grid-template-areas: "item item item item item docs docs docs"
+    grid-template-areas:  "item item item item item item item item"
+                          "docs docs docs docs docs docs docs docs"
                           "desc desc desc desc desc desc desc desc";
     width: 100%;
   }
   .tooling-header > .heading-desc {
     display: none;
+  }
+  .tooling-btn {
+
   }
 }
 
