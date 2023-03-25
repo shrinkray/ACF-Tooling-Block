@@ -18,7 +18,7 @@
 
 
 
-	.tooling-header {
+	.table-header {
 		background-color: transparent;
 		border-bottom: 2px solid black;
 		/*color: var(--wp--preset--tooling-contrast);*/
@@ -39,36 +39,36 @@
 		background-color: #ffebeb;
 	}
 
-	.tooling-header:focus {
+	.table-header:focus {
 		outline: 4px solid transparent;
 	}
 
 
-	.tooling-list {
+	.table-list {
 		padding: 0.75rem ;
 		border-bottom: 1px solid darkgray;
 	}
-	.tooling-list:nth-of-type(even) {
+	.table-list:nth-of-type(even) {
 		background: #f6f6f6;
 	}
-	.tooling-docs {
+	.table-docs {
 		display: flex;
 		align-items: center;
 		justify-content: flex-start;
 		padding-left: 0.4rem;
 		font-size: 0.9rem;
 	}
-	.tooling-desc {
+	.table-desc {
 		display: flex;
 		flex-direction: column;
 		font-size: 0.9rem;
 		line-height: 1.2;
 	}
-	.tooling-desc > mark {
+	.table-desc > mark {
 		margin-top: 0.4rem;
 		padding: 0.1rem 0.2rem;
 	}
-	.tooling-name {
+	.table-name {
 		line-height: 1.2;
 		font-weight: 600;
 		color: black;
@@ -115,12 +115,12 @@
 	}
 
 
-	a.tooling-btn {
+	a.table-btn {
 		align-self: center;
 		line-height: 1;
 		white-space: nowrap;
 	}
-	a.tooling-btn:hover {
+	a.table-btn:hover {
 		cursor: pointer;
 	}
 
@@ -132,20 +132,20 @@
 		padding: 1rem 1rem;
 	}
 
-	.tooling-header > .heading-tool,
-	.tooling-list > .tooling-name {
+	.table-header > .heading-tool,
+	.table-list > .table-name {
 		grid-area: item;
 	}
-	.tooling-header > .heading-docs,
-	.tooling-list > .tooling-docs {
+	.table-header > .heading-docs,
+	.table-list > .table-docs {
 		grid-area: docs;
 	}
-	.tooling-header > .heading-desc,
-	.tooling-list > .tooling-desc {
+	.table-header > .heading-desc,
+	.table-list > .table-desc {
 		grid-area: desc;
 	}
-	.tooling-header,
-	.tooling-list {
+	.table-header,
+	.table-list {
 		display: inline-grid;
 		grid-template-areas: "item item docs docs desc desc desc desc";
 		grid-template-columns: repeat(8, 1fr);
@@ -168,25 +168,25 @@
 /* wrap description */
 @media (max-width: 999px) {
 	.tooling {
-		.tooling-header,
-		.tooling-list {
+		.table-header,
+		.table-list {
 			display: grid;
 			grid-template-areas: "item item item item docs docs docs docs"
 							  "desc desc desc desc desc desc desc desc";
 			width: 100%;
 		}
 
-		.tooling-header > .heading-desc {
+		.table-header > .heading-desc {
 			display: none;
 		}
 
-		a.tooling-btn {
+		a.table-btn {
 			align-self: center;
 			padding: 0.2rem;
 			background-image: none;
 		}
 
-		.tooling-desc {
+		.table-desc {
 			padding-top: 1rem;
 		}
 	}
@@ -194,12 +194,12 @@
 @media (max-width: 479px) {
 
 	.tooling {
-		.tooling-name {
+		.table-name {
 			padding: 0.5rem 0;
 		}
 
-		.tooling-header,
-		.tooling-list {
+		.table-header,
+		.table-list {
 			display: grid;
 			grid-template-areas:  "item item item item item item item item"
 							  "docs docs docs docs docs docs docs docs"
@@ -207,7 +207,7 @@
 			width: 100%;
 		}
 
-		.tooling-header > .heading-desc {
+		.table-header > .heading-desc {
 			display: none;
 		}
 	}

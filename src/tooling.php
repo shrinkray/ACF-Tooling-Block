@@ -51,7 +51,7 @@
             <?php if ( have_rows( 'tool_builder' ) ) :
 
                 ?>
-                <div class="tooling-header">
+                <div class="table-header">
                     <span class="heading-tool">Tool</span>
                     <span class="heading-docs">Docs & Technical Specs</span>
                     <span class="heading-desc">Use & Notes</span>
@@ -63,12 +63,12 @@
                 ?>
 
 
-                <div class="tooling-list" >
+                <div class="table-list" >
 
-                    <div class="tooling-name" ><?= $tool ?></div>
+                    <div class="table-name" ><?= $tool ?></div>
 
 
-                    <div class="tooling-docs">
+                    <div class="table-docs">
 
                         <?php if ( have_rows( 'add_docs' ) ) : ?>
                             <?php while ( have_rows( 'add_docs' ) ) : the_row();
@@ -93,7 +93,7 @@
 
                                 <?php if ( $path ) : ?>
                                     <a
-                                            class="tooling-btn <?= $extension ?>"
+                                            class="table-btn <?= $extension ?>"
                                             role="button"
                                             href="<?= esc_url( $path ) ; ?>"
                                             title="Open <?= esc_html( $doc_desc ) ?>"
@@ -108,7 +108,7 @@
                         <?php endif; ?>
                     </div>
 
-                    <div class="tooling-desc" >
+                    <div class="table-desc" >
                         <?= esc_html( $description ); ?>
                         <?=
                         $notes ?
