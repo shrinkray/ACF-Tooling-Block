@@ -1,29 +1,4 @@
-<?php
-/**
- * Block template file: rental.php
- *
- * Rental Block Template.
- *
- * @param   array $block The block settings and attributes.
- * @param   string $content The block inner HTML (empty).
- * @param   bool $is_preview True during AJAX preview.
- * @param   (int|string) $post_id The post ID this block is saved to.
- */
-
-// The get_block_wrapper_attributes() is a requirement. Want think about whatnew attributes we might need.
-
-$wrapper_attributes = get_block_wrapper_attributes(
-    [
-        'class' => 'tooling'
-    ]
-);
-?>
-
-
-
-<div <?= $wrapper_attributes ?>>
-
-    <?php /**
+<?php /**
      * Block template file: tooling.php
      *
      * Tooling Block Template.
@@ -64,9 +39,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
             'class' => 'tooling'
         ]
     );
-    ?>
 
-    <?php
     /**
      * Tooling Builder
      * This block code displays information about tools in the shop.
@@ -78,7 +51,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
             <?php if ( have_rows( 'tool_builder' ) ) :
 
                 ?>
-                <div class="tooling-header">
+                <div class="table-header">
                     <span class="heading-tool">Tool</span>
                     <span class="heading-docs">Docs & Technical Specs</span>
                     <span class="heading-desc">Use & Notes</span>
@@ -90,12 +63,12 @@ $wrapper_attributes = get_block_wrapper_attributes(
                 ?>
 
 
-                <div class="tooling-list" >
+                <div class="table-list" >
 
-                    <div class="tooling-name" ><?= $tool ?></div>
+                    <div class="table-name" ><?= $tool ?></div>
 
 
-                    <div class="tooling-docs">
+                    <div class="table-docs">
 
                         <?php if ( have_rows( 'add_docs' ) ) : ?>
                             <?php while ( have_rows( 'add_docs' ) ) : the_row();
@@ -120,7 +93,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
                                 <?php if ( $path ) : ?>
                                     <a
-                                            class="tooling-btn <?= $extension ?>"
+                                            class="table-btn <?= $extension ?>"
                                             role="button"
                                             href="<?= esc_url( $path ) ; ?>"
                                             title="Open <?= esc_html( $doc_desc ) ?>"
@@ -135,7 +108,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
                         <?php endif; ?>
                     </div>
 
-                    <div class="tooling-desc" >
+                    <div class="table-desc" >
                         <?= esc_html( $description ); ?>
                         <?=
                         $notes ?
@@ -155,3 +128,4 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 
     </div>
+    <?php

@@ -1,9 +1,6 @@
 /*!*****************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/tooling.scss ***!
   \*****************************************************************************************************************************************************************************************************************************************/
-/**
-
- */
 .qubely-accordion-panel-handler-label {
   font-weight: 700;
 }
@@ -20,16 +17,15 @@
   padding: 0;
   width: 100%;
 }
-
-.tooling-header {
+.tooling .table-header {
   background-color: transparent;
   border-bottom: 2px solid black;
   /*color: var(--wp--preset--tooling-contrast);*/
-  cursor: pointer;
   display: block;
   font-family: inherit;
   font-size: 0.9rem;
   font-weight: 700;
+  color: black;
   margin: 0;
   outline: none;
   padding: 0.75rem 0 0.25rem 0;
@@ -37,55 +33,46 @@
   text-transform: uppercase;
   width: 100%;
 }
-
-mark {
+.tooling mark {
   background-color: #ffebeb;
 }
-
-.tooling-header:focus {
+.tooling .table-header:focus {
   outline: 4px solid transparent;
 }
-
-.tooling-list {
+.tooling .table-list {
   padding: 0.75rem;
   border-bottom: 1px solid darkgray;
 }
-
-.tooling-list:nth-of-type(even) {
+.tooling .table-list:nth-of-type(even) {
   background: #f6f6f6;
 }
-
-.tooling-docs {
+.tooling .table-docs {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   padding-left: 0.4rem;
   font-size: 0.9rem;
 }
-
-.tooling-desc {
+.tooling .table-desc {
   display: flex;
   flex-direction: column;
   font-size: 0.9rem;
   line-height: 1.2;
 }
-
-.tooling-desc > mark {
+.tooling .table-desc > mark {
   margin-top: 0.4rem;
   padding: 0.1rem 0.2rem;
 }
-
-.tooling-name {
+.tooling .table-name {
   line-height: 1.2;
   font-weight: 600;
+  color: black;
 }
-
-mark {
+.tooling mark {
   width: -moz-fit-content;
   width: fit-content;
 }
-
-.pdf:before {
+.tooling .pdf:before {
   content: "PDF";
   color: white;
   padding: 0 0.4rem;
@@ -96,8 +83,7 @@ mark {
   font-size: x-small;
   font-weight: bold;
 }
-
-.stl:before {
+.tooling .stl:before {
   content: "STL";
   color: black;
   padding: 0 0.4rem;
@@ -108,8 +94,7 @@ mark {
   font-size: x-small;
   font-weight: bold;
 }
-
-.gcode:before {
+.tooling .gcode:before {
   content: "GCODE";
   color: black;
   padding: 0 0.4rem;
@@ -120,58 +105,49 @@ mark {
   font-size: x-small;
   font-weight: bold;
 }
-
-a.tooling-btn {
+.tooling .table-btn {
   align-self: center;
   line-height: 1;
   white-space: nowrap;
 }
-
-a.tooling-btn:hover {
+.tooling .table-btn:hover {
   cursor: pointer;
 }
-
-.wp-block-post-content h3 + .tooling-panel {
+.tooling .wp-block-post-content h3 + .tooling-panel {
   margin-top: 0 !important;
 }
-
-.acf-tooling-block-empty-state {
+.tooling .acf-tooling-block-empty-state {
   padding: 1rem 1rem;
 }
-
-.tooling-header > .heading-tool,
-.tooling-list > .tooling-name {
+.tooling .table-header > .heading-tool,
+.tooling .table-list > .table-name {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
   grid-area: item;
 }
-
-.tooling-header > .heading-docs,
-.tooling-list > .tooling-docs {
+.tooling .table-header > .heading-docs,
+.tooling .table-list > .table-docs {
   -ms-grid-row: 1;
   -ms-grid-column: 3;
   -ms-grid-column-span: 2;
   grid-area: docs;
 }
-
-.tooling-header > .heading-desc,
-.tooling-list > .tooling-desc {
+.tooling .table-header > .heading-desc,
+.tooling .table-list > .table-desc {
   -ms-grid-row: 1;
   -ms-grid-column: 5;
   -ms-grid-column-span: 4;
   grid-area: desc;
 }
-
-.tooling-header,
-.tooling-list {
+.tooling .table-header,
+.tooling .table-list {
   display: inline-grid;
   grid-template-areas: "item item docs docs desc desc desc desc";
   grid-template-columns: repeat(8, 1fr);
   width: 100%;
 }
-
-.tool-footer {
+.tooling .tool-footer {
   display: flex;
   flex-grow: 1;
   justify-content: space-around;
@@ -179,87 +155,85 @@ a.tooling-btn:hover {
   width: 100%;
   background: #1F1F1F;
 }
-
-.light-bkg {
+.tooling .light-bkg {
   background-color: ivory;
 }
 
 /* wrap description */
 @media (max-width: 999px) {
-  .tooling-header,
-  .tooling-list {
+  .tooling .table-header,
+  .tooling .table-list {
     display: grid;
     grid-template-areas: "item item item item docs docs docs docs" "desc desc desc desc desc desc desc desc";
     width: 100%;
   }
-  .tooling-header > .heading-desc {
+  .tooling .table-header > .heading-desc {
     display: none;
   }
-  a.tooling-btn {
+  .tooling .table-btn {
     align-self: center;
     padding: 0.2rem;
     background-image: none;
   }
-  .tooling-desc {
+  .tooling .table-desc {
     padding-top: 1rem;
   }
-  .tooling-header > .heading-tool,
-.tooling-list > .tooling-name {
+  .tooling .table-header > .heading-tool,
+.tooling .table-list > .table-name {
     -ms-grid-row: 1;
     -ms-grid-column: 1;
     -ms-grid-column-span: 4;
   }
-  .tooling-header > .heading-docs,
-.tooling-list > .tooling-docs {
+  .tooling .table-header > .heading-docs,
+.tooling .table-list > .table-docs {
     -ms-grid-row: 1;
     -ms-grid-column: 5;
     -ms-grid-column-span: 4;
   }
-  .tooling-header > .heading-desc,
-.tooling-list > .tooling-desc {
+  .tooling .table-header > .heading-desc,
+.tooling .table-list > .table-desc {
     -ms-grid-row: 2;
     -ms-grid-column: 1;
     -ms-grid-column-span: 8;
   }
 }
 @media (max-width: 479px) {
-  .tooling-name {
+  .tooling .table-name {
     padding: 0.5rem 0;
   }
-  .tooling-header,
-  .tooling-list {
+  .tooling .table-header,
+  .tooling .table-list {
     display: grid;
     grid-template-areas: "item item item item item item item item" "docs docs docs docs docs docs docs docs" "desc desc desc desc desc desc desc desc";
     width: 100%;
   }
-  .tooling-header > .heading-desc {
+  .tooling .table-header > .heading-desc {
     display: none;
   }
-  .tooling-header > .heading-tool,
-.tooling-list > .tooling-name {
+  .tooling .table-header > .heading-tool,
+.tooling .table-list > .table-name {
     -ms-grid-row: 1;
     -ms-grid-column: 1;
     -ms-grid-column-span: 8;
   }
-  .tooling-header > .heading-docs,
-.tooling-list > .tooling-docs {
+  .tooling .table-header > .heading-docs,
+.tooling .table-list > .table-docs {
     -ms-grid-row: 2;
     -ms-grid-column: 1;
     -ms-grid-column-span: 8;
   }
-  .tooling-header > .heading-desc,
-.tooling-list > .tooling-desc {
+  .tooling .table-header > .heading-desc,
+.tooling .table-list > .table-desc {
     -ms-grid-row: 3;
     -ms-grid-column: 1;
     -ms-grid-column-span: 8;
   }
 }
-.labels {
+.tooling .labels {
   display: flex;
   align-items: center;
 }
-
-.ui.label {
+.tooling .ui.label {
   margin: 0 0.5em 0 0;
   padding: 0.4em 0.833em;
   min-width: 3em;
@@ -268,80 +242,61 @@ a.tooling-btn:hover {
   line-height: 1;
   border-radius: 0.5rem;
 }
-
-.ui.label.abrasive {
+.tooling .ui.label.abrasive {
   background-color: #F2D7D5;
 }
-
-.ui.label.arts {
+.tooling .ui.label.arts {
   background-color: #FADBD8;
 }
-
-.ui.label.auto {
+.tooling .ui.label.auto {
   background-color: #EBDEF0;
 }
-
-.ui.label.computer {
+.tooling .ui.label.computer {
   background-color: #E8DAEF;
 }
-
-.ui.label.fab {
+.tooling .ui.label.fab {
   background-color: #D4E6F1;
 }
-
-.ui.label.text {
+.tooling .ui.label.text {
   background-color: #D6EAF8;
 }
-
-.ui.label.layout {
+.tooling .ui.label.layout {
   background-color: #D1F2EB;
 }
-
-.ui.label.elect {
+.tooling .ui.label.elect {
   background-color: #D0ECE7;
 }
-
-.ui.label.machine {
+.tooling .ui.label.machine {
   background-color: #D4EFDF;
 }
-
-.ui.label.dim {
+.tooling .ui.label.dim {
   background-color: #D5F5E3;
 }
-
-.ui.label.misc {
+.tooling .ui.label.misc {
   background-color: #FCF3CF;
 }
-
-.ui.label.plastic {
+.tooling .ui.label.plastic {
   background-color: #FDEBD0;
 }
-
-.ui.label.ceramic {
+.tooling .ui.label.ceramic {
   background-color: #FAE5D3;
 }
-
-.ui.label.prototype {
+.tooling .ui.label.prototype {
   background-color: #F6DDCC;
 }
-
-.ui.label.stock {
+.tooling .ui.label.stock {
   background-color: #FBFCFC;
 }
-
-.ui.label.metal {
+.tooling .ui.label.metal {
   background-color: #F2F3F4;
 }
-
-.ui.label.finish {
+.tooling .ui.label.finish {
   background-color: #EAEDED;
 }
-
-.ui.label.weld {
+.tooling .ui.label.weld {
   background-color: #E5E8E8;
 }
-
-.ui.label.wood {
+.tooling .ui.label.wood {
   background-color: #D6DBDF;
 }
 
