@@ -1,29 +1,4 @@
-<?php
-/**
- * Block template file: rental.php
- *
- * Rental Block Template.
- *
- * @param   array $block The block settings and attributes.
- * @param   string $content The block inner HTML (empty).
- * @param   bool $is_preview True during AJAX preview.
- * @param   (int|string) $post_id The post ID this block is saved to.
- */
-
-// The get_block_wrapper_attributes() is a requirement. Want think about whatnew attributes we might need.
-
-$wrapper_attributes = get_block_wrapper_attributes(
-    [
-        'class' => 'tooling'
-    ]
-);
-?>
-
-
-
-<div <?= $wrapper_attributes ?>>
-
-    <?php /**
+<?php /**
      * Block template file: tooling.php
      *
      * Tooling Block Template.
@@ -64,9 +39,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
             'class' => 'tooling'
         ]
     );
-    ?>
 
-    <?php
     /**
      * Tooling Builder
      * This block code displays information about tools in the shop.
@@ -155,3 +128,4 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 
     </div>
+    <?php
