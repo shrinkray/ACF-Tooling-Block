@@ -39,8 +39,10 @@
 		background-color: #ffebeb;
 	}
 
-	.table-header:focus {
-		outline: 4px solid transparent;
+	.table-header {
+		&:focus {
+			outline: 4px solid transparent;
+		}
 	}
 
 
@@ -48,8 +50,10 @@
 		padding: 0.75rem ;
 		border-bottom: 1px solid darkgray;
 	}
-	.table-list:nth-of-type(even) {
-		background: #f6f6f6;
+	.table-list {
+		&:nth-of-type(even) {
+			background: #f6f6f6;
+		}
 	}
 	.table-docs {
 		display: flex;
@@ -64,9 +68,11 @@
 		font-size: 0.9rem;
 		line-height: 1.2;
 	}
-	.table-desc > mark {
-		margin-top: 0.4rem;
-		padding: 0.1rem 0.2rem;
+	.table-desc {
+		&> mark {
+			margin-top: 0.4rem;
+			padding: 0.1rem 0.2rem;
+		}
 	}
 	.table-name {
 		line-height: 1.2;
@@ -76,51 +82,57 @@
 	mark {
 		width: fit-content;
 	}
-	.pdf:before {
-		content: 'PDF';
-		color: white;
-		padding:0 0.4rem;
-		border-radius: 0.5rem;
-		left: -5px;
-		position: relative;
-		background: #ff2828;
-		font-size: x-small;
-		font-weight: bold;
+	.pdf {
+		&:before {
+			content: 'PDF';
+			color: white;
+			padding:0 0.4rem;
+			border-radius: 0.5rem;
+			left: -5px;
+			position: relative;
+			background: #ff2828;
+			font-size: x-small;
+			font-weight: bold;
 
+		}
 	}
-	.stl:before {
-		content: 'STL';
-		color: black;
-		padding:0 0.4rem;
-		border-radius: 0.5rem;
-		left: -5px;
-		position: relative;
-		background: #b9dce7;
-		font-size: x-small;
-		font-weight: bold;
+	.stl {
+		&:before {
+			content: 'STL';
+			color: black;
+			padding:0 0.4rem;
+			border-radius: 0.5rem;
+			left: -5px;
+			position: relative;
+			background: #b9dce7;
+			font-size: x-small;
+			font-weight: bold;
 
-	}
-
-	.gcode:before {
-		content: 'GCODE';
-		color: black;
-		padding:0 0.4rem;
-		border-radius: 0.5rem;
-		left: -5px;
-		position: relative;
-		background: #a6eca6;
-		font-size: x-small;
-		font-weight: bold;
-
+		}
 	}
 
+	.gcode {
+		&:before {
+			content: 'GCODE';
+			color: black;
+			padding:0 0.4rem;
+			border-radius: 0.5rem;
+			left: -5px;
+			position: relative;
+			background: #a6eca6;
+			font-size: x-small;
+			font-weight: bold;
 
-	a.table-btn {
+		}
+	}
+
+
+	.table-btn {
 		align-self: center;
 		line-height: 1;
 		white-space: nowrap;
 	}
-	a.table-btn:hover {
+	.table-btn:hover {
 		cursor: pointer;
 	}
 
@@ -149,7 +161,6 @@
 		display: inline-grid;
 		grid-template-areas: "item item docs docs desc desc desc desc";
 		grid-template-columns: repeat(8, 1fr);
-
 		width: 100%;
 	}
 
@@ -176,11 +187,13 @@
 			width: 100%;
 		}
 
-		.table-header > .heading-desc {
-			display: none;
+		.table-header {
+			&> .heading-desc {
+				display: none;
+			}
 		}
 
-		a.table-btn {
+		.table-btn {
 			align-self: center;
 			padding: 0.2rem;
 			background-image: none;
@@ -207,8 +220,10 @@
 			width: 100%;
 		}
 
-		.table-header > .heading-desc {
-			display: none;
+		.table-header {
+			&> .heading-desc {
+				display: none;
+			}
 		}
 	}
 }
