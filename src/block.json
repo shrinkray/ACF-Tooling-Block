@@ -1,0 +1,28 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "acf/tooling",
+	"version": "0.1.0",
+	"title": "ACF Tooling Block",
+	"category": "acf-blocks",
+	"icon": "smiley",
+	"description": "A tooling block.",
+	"supports": {
+		"color": {
+			"text": true,
+			"background": false
+		},
+		"mode": false
+	},
+	"keywords": [
+		"rental",
+		"list",
+		"cost"
+	],
+	"script": "file:./tooling.js",
+	"style": "file:./tooling.css",
+	"acf": {
+		"mode": "auto",
+		"renderTemplate": "tooling.php"
+	}
+}
