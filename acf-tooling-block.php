@@ -1,6 +1,7 @@
 <?php
 /**
  * Plugin Name:       ACF Tooling Block
+ * Description:       Build a table items and use descriptions, such as to list shop tools for a makerspace.
  * Requires at least: 6.0
  * Requires PHP:      7.0
  * Version:           0.1.0
