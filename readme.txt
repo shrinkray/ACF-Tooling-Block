@@ -1,6 +1,6 @@
 === ACF ===
 Contributors:      Greg Miller
-Tags:              block
+Tags:              block, list, downloads
 Tested up to:      6.0
 Stable tag:        0.1.0
 License:           GPL-2.0-or-later
@@ -10,7 +10,7 @@ License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-This ACF plugin displays items, description, and download docs. It was created for a makerspace to track shop tools and manuals.
+This ACF plugin displays items, description, and download files and docs. Update content on the page. 
 
 
 == Installation ==
