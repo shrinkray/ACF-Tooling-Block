@@ -14,11 +14,7 @@
 		},
 		"mode": false
 	},
-	"keywords": [
-		"rental",
-		"list",
-		"cost"
-	],
+	"keywords": [ "rental", "list", "cost" ],
 	"script": "file:./tooling.js",
 	"style": "file:./tooling.css",
 	"acf": {
