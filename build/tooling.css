@@ -1,6 +1,29 @@
 /*!*****************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/tooling.scss ***!
   \*****************************************************************************************************************************************************************************************************************************************/
+:root {
+  --bfl-primary: #c20430;
+  --bfl-primary-hover: #970225;
+  --bfl-text: #191919;
+  --bfl-accent: #49cbff;
+  --bfl-basic-white: #fff;
+  --bfl-blue-tint: #5f98b6;
+  --bfl-maize-tint: #b49056;
+  --bfl-lavendar-tint: #7a5fab;
+  --bfl-sage-tint: #7a5fab;
+  --bfl-pink-tint: #9f5879;
+  --bfl-sidewalk-tint: #818181;
+  --bfl-rose-tint: #913131;
+  --bfl-glare: #f1f1f1ff;
+  --bfl-plaster: #d3d3d3ff;
+  --bfl-dried-leaves: #674a2a;
+  --bfl-concrete-tint: #7d7d7d;
+  --bfl-ivory-tint: #fffff0ff;
+  --bfl-primary-highlite: #ffebebff;
+  --bfl-hazy-tint: #ffebebff;
+  --bfl-grass-tint: #a6eca6;
+}
+
 .qubely-accordion-panel-handler-label {
   font-weight: 700;
 }
@@ -17,15 +40,29 @@
   padding: 0;
   width: 100%;
 }
+.tooling .table-header,
+.tooling .table-list {
+  display: inline-grid;
+  grid-template-areas: "item item docs docs desc desc desc desc";
+  grid-template-columns: repeat(8, 1fr);
+  width: 100%;
+}
+.tooling .table-list {
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--bfl-concrete-tint);
+}
+.tooling .table-list:nth-of-type(even) {
+  background: var(--bfl-glare);
+}
 .tooling .table-header {
   background-color: transparent;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid var(--bfl-text);
   /*color: var(--wp--preset--tooling-contrast);*/
   display: block;
   font-family: inherit;
   font-size: 0.9rem;
   font-weight: 700;
-  color: black;
+  color: var(--bfl-text);
   margin: 0;
   outline: none;
   padding: 0.75rem 0 0.25rem 0;
@@ -33,18 +70,8 @@
   text-transform: uppercase;
   width: 100%;
 }
-.tooling mark {
-  background-color: #ffebeb;
-}
 .tooling .table-header:focus {
   outline: 4px solid transparent;
-}
-.tooling .table-list {
-  padding: 0.75rem;
-  border-bottom: 1px solid darkgray;
-}
-.tooling .table-list:nth-of-type(even) {
-  background: #f6f6f6;
 }
 .tooling .table-docs {
   display: flex;
@@ -62,48 +89,47 @@
 .tooling .table-desc > mark {
   margin-top: 0.4rem;
   padding: 0.1rem 0.2rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: var(--bfl-primary-highlite);
 }
 .tooling .table-name {
   line-height: 1.2;
   font-weight: 600;
-  color: black;
+  color: var(--bfl-text);
 }
-.tooling mark {
-  width: -moz-fit-content;
-  width: fit-content;
-}
-.tooling .pdf:before {
+.tooling .pdf::before {
   content: "PDF";
-  color: white;
-  padding: 0 0.4rem;
+  color: var(--bfl-basic-white);
+  padding: 0.1rem 0.4rem;
   border-radius: 0.5rem;
   left: -5px;
   position: relative;
-  background: #ff2828;
+  background: var(--bfl-primary);
   font-size: x-small;
-  font-weight: bold;
+  font-weight: 700;
 }
-.tooling .stl:before {
+.tooling .stl::before {
   content: "STL";
-  color: black;
-  padding: 0 0.4rem;
+  color: var(--bfl-text);
+  padding: 0.1rem 0.4rem;
   border-radius: 0.5rem;
   left: -5px;
   position: relative;
-  background: #b9dce7;
+  background: var(--bfl-hazy-tint);
   font-size: x-small;
-  font-weight: bold;
+  font-weight: 700;
 }
-.tooling .gcode:before {
+.tooling .gcode::before {
   content: "GCODE";
-  color: black;
-  padding: 0 0.4rem;
+  color: var(--bfl-text);
+  padding: 0.1rem 0.4rem;
   border-radius: 0.5rem;
   left: -5px;
   position: relative;
-  background: #a6eca6;
+  background: var(--bfl-grass-tint);
   font-size: x-small;
-  font-weight: bold;
+  font-weight: 700;
 }
 .tooling .table-btn {
   align-self: center;
@@ -140,23 +166,20 @@
   -ms-grid-column-span: 4;
   grid-area: desc;
 }
-.tooling .table-header,
-.tooling .table-list {
-  display: inline-grid;
-  grid-template-areas: "item item docs docs desc desc desc desc";
-  grid-template-columns: repeat(8, 1fr);
-  width: 100%;
-}
 .tooling .tool-footer {
   display: flex;
   flex-grow: 1;
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  background: #1F1F1F;
+  background: var(--bfl-text);
 }
 .tooling .light-bkg {
-  background-color: ivory;
+  background-color: var(--bfl-ivory-tint);
+}
+.tooling .labels {
+  display: flex;
+  align-items: center;
 }
 
 /* wrap description */
@@ -167,7 +190,7 @@
     grid-template-areas: "item item item item docs docs docs docs" "desc desc desc desc desc desc desc desc";
     width: 100%;
   }
-  .tooling .table-header > .heading-desc {
+  .tooling .table-header .heading-desc {
     display: none;
   }
   .tooling .table-btn {
@@ -229,77 +252,5 @@
     -ms-grid-column-span: 8;
   }
 }
-.tooling .labels {
-  display: flex;
-  align-items: center;
-}
-.tooling .ui.label {
-  margin: 0 0.5em 0 0;
-  padding: 0.4em 0.833em;
-  min-width: 3em;
-  text-align: center;
-  font-size: 0.7rem;
-  line-height: 1;
-  border-radius: 0.5rem;
-}
-.tooling .ui.label.abrasive {
-  background-color: #F2D7D5;
-}
-.tooling .ui.label.arts {
-  background-color: #FADBD8;
-}
-.tooling .ui.label.auto {
-  background-color: #EBDEF0;
-}
-.tooling .ui.label.computer {
-  background-color: #E8DAEF;
-}
-.tooling .ui.label.fab {
-  background-color: #D4E6F1;
-}
-.tooling .ui.label.text {
-  background-color: #D6EAF8;
-}
-.tooling .ui.label.layout {
-  background-color: #D1F2EB;
-}
-.tooling .ui.label.elect {
-  background-color: #D0ECE7;
-}
-.tooling .ui.label.machine {
-  background-color: #D4EFDF;
-}
-.tooling .ui.label.dim {
-  background-color: #D5F5E3;
-}
-.tooling .ui.label.misc {
-  background-color: #FCF3CF;
-}
-.tooling .ui.label.plastic {
-  background-color: #FDEBD0;
-}
-.tooling .ui.label.ceramic {
-  background-color: #FAE5D3;
-}
-.tooling .ui.label.prototype {
-  background-color: #F6DDCC;
-}
-.tooling .ui.label.stock {
-  background-color: #FBFCFC;
-}
-.tooling .ui.label.metal {
-  background-color: #F2F3F4;
-}
-.tooling .ui.label.finish {
-  background-color: #EAEDED;
-}
-.tooling .ui.label.weld {
-  background-color: #E5E8E8;
-}
-.tooling .ui.label.wood {
-  background-color: #D6DBDF;
-}
-
-
 
 /*# sourceMappingURL=tooling.css.map*/
