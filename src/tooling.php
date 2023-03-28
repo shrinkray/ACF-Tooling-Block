@@ -45,16 +45,19 @@
      * This block code displays information about tools in the shop.
      */
     ?>
-    <div <?= $wrapper_attributes; ?>>
+    <section <?= $wrapper_attributes; ?>>
 
-        <div id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $classes ); ?>">
+        <div role="table" aria-label="Tool List"
+             id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $classes ); ?>">
             <?php if ( have_rows( 'tool_builder' ) ) :
 
                 ?>
-                <div class="table-header">
-                    <span class="heading-tool">Tool</span>
-                    <span class="heading-docs">Docs & Technical Specs</span>
-                    <span class="heading-desc">Use & Notes</span>
+                <div role="rowgroup" class="table-header">
+                    <div class="row" role="row">
+                        <span role="columnheader" class="tool">Tool</span>
+                        <span role="columnheader" class="docs">Docs & Technical Specs</span>
+                        <span role="columnheader" class="desc">Use & Notes</span>
+                    </div>
                 </div>
                 <?php while ( have_rows( 'tool_builder' ) ) : the_row();
                 $tool = get_sub_field('tool_name');
@@ -63,61 +66,61 @@
                 ?>
 
 
-                <div class="table-list" >
+                <article role="rowgroup" class="table-list" >
+                    <div class="row" role="row">
+                        <div role="cell" class="tool-name" ><?= $tool ?></div>
 
-                    <div class="table-name" ><?= $tool ?></div>
 
+                        <div role="cell" class="download">
 
-                    <div class="table-docs">
+                            <?php if ( have_rows( 'add_docs' ) ) : ?>
+                                <?php while ( have_rows( 'add_docs' ) ) : the_row();
 
-                        <?php if ( have_rows( 'add_docs' ) ) : ?>
-                            <?php while ( have_rows( 'add_docs' ) ) : the_row();
+                                    $doc_name   = get_sub_field( 'manual_name' );
+                                    $room       = get_sub_field( 'work_space' );
+                                    $subfolder  = get_sub_field( 'sub_folder' );
+                                    $doc_file   = get_sub_field( 'doc_file' );
+                                    $doc_desc   = get_sub_field( 'doc_desc' );
+                                    $site_url   = site_url();
 
-                                $doc_name   = get_sub_field( 'manual_name' );
-                                $room       = get_sub_field( 'work_space' );
-                                $subfolder  = get_sub_field( 'sub_folder' );
-                                $doc_file   = get_sub_field( 'doc_file' );
-                                $doc_desc   = get_sub_field( 'doc_desc' );
-                                $site_url   = site_url();
+                                    // returns the file extension
+                                    $extension = pathinfo($doc_file, PATHINFO_EXTENSION);
 
-                                // returns the file extension
-                                $extension = pathinfo($doc_file, PATHINFO_EXTENSION);
+                                    // if type exists, insert in path, otherwise build path without
+                                    $subfolder ?
+                                        $path = $site_url . '/manuals/' . $room . '/' . $subfolder . '/'. $doc_file :
+                                        $path = $site_url . '/manuals/' . $room . '/' . $doc_file;
 
-                                // if type exists, insert in path, otherwise build path without
-                                $subfolder ?
-                                    $path = $site_url . '/manuals/' . $room . '/' . $subfolder . '/'. $doc_file :
-                                    $path = $site_url . '/manuals/' . $room . '/' . $doc_file;
+                                    // Build the download link based on derived info
+                                    ?>
 
-                                // Build the download link based on derived info
-                                ?>
+                                    <?php if ( $path ) : ?>
+                                        <a
+                                                class="table-btn <?= $extension ?>"
+                                                role="button"
+                                                href="<?= esc_url( $path ) ; ?>"
+                                                title="Open <?= esc_html( $doc_desc ) ?>"
+                                                aria-label="Open <?= esc_html( $doc_desc ) ?>" target="_blank" >
+                                            <?= esc_html( $doc_name ) ?>
+                                        </a>
+                                    <?php endif; ?>
 
-                                <?php if ( $path ) : ?>
-                                    <a
-                                            class="table-btn <?= $extension ?>"
-                                            role="button"
-                                            href="<?= esc_url( $path ) ; ?>"
-                                            title="Open <?= esc_html( $doc_desc ) ?>"
-                                            aria-label="Open <?= esc_html( $doc_desc ) ?>" target="_blank" >
-                                        <?= esc_html( $doc_name ) ?>
-                                    </a>
-                                <?php endif; ?>
+                                <?php endwhile; ?>
+                            <?php else : ?>
 
-                            <?php endwhile; ?>
-                        <?php else : ?>
+                            <?php endif; ?>
+                            </div>
 
-                        <?php endif; ?>
+                        <div role="cell" class="description" >
+                            <?= esc_html( $description ); ?>
+                            <?=
+                            $notes ?
+                                '<mark><strong>Notes:&nbsp;</strong>' . esc_html( $notes ) . '</mark>' :
+                                ''
+                            ?>
+                        </div>
                     </div>
-
-                    <div class="table-desc" >
-                        <?= esc_html( $description ); ?>
-                        <?=
-                        $notes ?
-                            '<mark><strong>Notes:&nbsp;</strong>' . esc_html( $notes ) . '</mark>' :
-                            ''
-                        ?>
-                    </div>
-
-                </div>
+                </article>
             <?php endwhile; ?>
             <?php else : ?>
                 <?php // No rows found ?>
@@ -127,5 +130,5 @@
 
 
 
-    </div>
+    </section>
     <?php
