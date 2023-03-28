@@ -15,7 +15,7 @@
 	--bfl-sidewalk-tint: #818181;
 	--bfl-rose-tint: #913131;
 
-	--bfl-glare: #f1f1f1ff;
+	--bfl-glare: #f1f1f1f1;
 	--bfl-plaster: #d3d3d3ff;
 	--bfl-dried-leaves: #674a2a;
 	--bfl-concrete-tint: #7d7d7d;
@@ -35,19 +35,24 @@
 
 .tooling {
 
-	/*background-color: var(--wp--preset--tooling-base);*/
 	border: none;
 	font-size: 1rem;
 	margin: 0;
 	padding: 0;
 	width: 100%;
 
+	.row {
+		padding: 0;
+	}
+
 	.table-header,
 	.table-list {
-		display: inline-grid;
-		grid-template-areas: "item item docs docs desc desc desc desc";
-		grid-template-columns: repeat(8, 1fr);
-		width: 100%;
+		> .row {
+			display: inline-grid;
+			grid-template-areas: "item item docs docs desc desc desc desc";
+			grid-template-columns: repeat(8, 1fr);
+			width: 100%;
+		}
 	}
 
 	.table-list {
@@ -60,28 +65,27 @@
 	}
 
 	.table-header {
-		background-color: transparent;
-		border-bottom: 2px solid var(--bfl-text);
+		> .row {
+			background-color: transparent;
+			border-bottom: 2px solid var(--bfl-text);
+			font-family: inherit;
+			font-size: 0.9rem;
+			font-weight: 700;
+			color: var(--bfl-text);
+			margin: 0;
+			outline: none;
+			padding: 0.75rem 0 0.25rem 0;
+			position: relative;
+			text-transform: uppercase;
+			width: 100%;
 
-		/*color: var(--wp--preset--tooling-contrast);*/
-		display: block;
-		font-family: inherit;
-		font-size: 0.9rem;
-		font-weight: 700;
-		color: var(--bfl-text);
-		margin: 0;
-		outline: none;
-		padding: 0.75rem 0 0.25rem 0;
-		position: relative;
-		text-transform: uppercase;
-		width: 100%;
-
-		&:focus {
-			outline: 4px solid transparent;
+			&:focus {
+				outline: 4px solid var(--bfl-dried-leaves);
+			}
 		}
 	}
 
-	.table-docs {
+	.download {
 		display: flex;
 		align-items: center;
 		justify-content: flex-start;
@@ -89,11 +93,12 @@
 		font-size: 0.9rem;
 	}
 
-	.table-desc {
+	.description {
 		display: flex;
 		flex-direction: column;
 		font-size: 0.9rem;
 		line-height: 1.2;
+		color: var(--bfl-text);
 
 		> mark {
 			margin-top: 0.4rem;
@@ -103,10 +108,12 @@
 		}
 	}
 
-	.table-name {
+	.tool-name {
 		line-height: 1.2;
 		font-weight: 600;
 		color: var(--bfl-text);
+		display: flex;
+		align-items: center;
 	}
 
 	.pdf {
@@ -159,6 +166,7 @@
 		align-self: center;
 		line-height: 1;
 		white-space: nowrap;
+		padding: 0.5rem;
 	}
 
 	.table-btn:hover {
@@ -173,32 +181,20 @@
 		padding: 1rem 1rem;
 	}
 
-	.table-header > .heading-tool,
-	.table-list > .table-name {
+
+	.table-header  .tool,
+	.table-list  .tool-name {
 		grid-area: item;
 	}
 
-	.table-header > .heading-docs,
-	.table-list > .table-docs {
+	.table-header  .docs,
+	.table-list  .download {
 		grid-area: docs;
 	}
 
-	.table-header > .heading-desc,
-	.table-list > .table-desc {
+	.table-header  .desc,
+	.table-list  .description {
 		grid-area: desc;
-	}
-
-	.tool-footer {
-		display: flex;
-		flex-grow: 1;
-		justify-content: space-around;
-		align-items: center;
-		width: 100%;
-		background: var(--bfl-text);
-	}
-
-	.light-bkg {
-		background-color: var(--bfl-ivory-tint);
 	}
 
 	.labels {
@@ -214,27 +210,31 @@
 
 		.table-header,
 		.table-list {
-			display: grid;
-			grid-template-areas:
+
+			.row {
+				display: grid;
+				grid-template-areas:
 				"item item item item docs docs docs docs"
 				"desc desc desc desc desc desc desc desc";
-			width: 100%;
+				width: 100%;
+			}
 		}
 
 		.table-header {
 
-			.heading-desc {
+			.desc {
 				display: none;
 			}
 		}
 
 		.table-btn {
 			align-self: center;
-			padding: 0.2rem;
 			background-image: none;
+			white-space: nowrap;
+			padding: 0.5rem 0.5rem 0.5rem 0;
 		}
 
-		.table-desc {
+		.description {
 			padding-top: 1rem;
 		}
 	}
@@ -244,23 +244,26 @@
 
 	.tooling {
 
-		.table-name {
+		.tool-name {
 			padding: 0.5rem 0;
 		}
 
 		.table-header,
 		.table-list {
-			display: grid;
-			grid-template-areas:
+
+			.row {
+				display: grid;
+				grid-template-areas:
 				"item item item item item item item item"
 				"docs docs docs docs docs docs docs docs"
 				"desc desc desc desc desc desc desc desc";
-			width: 100%;
+				width: 100%;
+			}
 		}
 
 		.table-header {
 
-			> .heading-desc {
+			.desc {
 				display: none;
 			}
 		}
