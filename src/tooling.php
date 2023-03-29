@@ -66,7 +66,7 @@
                 ?>
 
 
-                <article role="rowgroup" class="table-list" >
+                <div role="rowgroup" class="table-list" >
                     <div class="row" role="row">
                         <div role="cell" class="tool-name" ><?= $tool ?></div>
 
@@ -120,7 +120,7 @@
                             ?>
                         </div>
                     </div>
-                </article>
+                </div>
             <?php endwhile; ?>
             <?php else : ?>
                 <?php // No rows found ?>
