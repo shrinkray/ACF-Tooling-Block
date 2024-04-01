@@ -65,6 +65,7 @@
 
 	.download {
 		display: flex;
+		flex-wrap: wrap;
 		align-items: center;
 		justify-content: flex-start;
 		padding-left: 0.4rem;
